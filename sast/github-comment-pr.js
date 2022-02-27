@@ -1,4 +1,4 @@
-const core = require("@action/core")
+const core = require("@actions/core")
 const github = require("@actions/github")
 const { Octokit } = require("@octokit/rest")
 const fs = require("fs")
@@ -44,7 +44,7 @@ try {
 
             <details>
                 <summary> Show Report! </summary>
-                
+
                 \`\`\`
                 ${report_parser(npm_audit_report)}
                 \`\`\`
