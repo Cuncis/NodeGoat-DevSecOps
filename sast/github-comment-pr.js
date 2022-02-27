@@ -20,7 +20,7 @@ function report_parser(npm_report) {
 }
 
 try {
-    const github_token = core.getInput("GITHUB_TOKEN")
+    const github_token = process.env.GITHUB_TOKEN
     const npm_audit_report = fs.readFileSync("report.json", "utf-8")
 
     const context = github.context
@@ -44,8 +44,10 @@ try {
 
             <details>
                 <summary> Show Report! </summary>
-
+                
+                \`\`\`
                 ${report_parser(npm_audit_report)}
+                \`\`\`
             </details>
             
         `
