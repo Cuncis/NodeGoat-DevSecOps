@@ -5,6 +5,9 @@
   "description": "A tool to learn OWASP Top 10 for node.js developers",
   "main": "server.js",
   "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "@octokit/rest": "^18.12.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.1",
     "consolidate": "^0.14.1",
@@ -28,6 +31,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "cross-env PORT=5000 nodemon",
+    "sca": "node sast/github-comment-pr.js",
     "test:e2e": "cross-env NODE_ENV=test cypress open",
     "test:ci": "cross-env NODE_ENV=test cypress run",
     "test": "node node_modules/grunt-cli/bin/grunt test",

@@ -7,6 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: npm ci
-      - run: npm audit
+      - name: Install dependencies
+        run: npm ci
+      - name: Run NPM audit
+        run: npm audit --json > report.json
+      - name: Publish report
+        run: npm run sca
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
