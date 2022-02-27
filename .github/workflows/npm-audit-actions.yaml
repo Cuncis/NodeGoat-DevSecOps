@@ -10,6 +10,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Run NPM audit
+        continue-on-error: true
         run: npm audit --json > report.json
       - name: Publish report
         run: npm run sca
